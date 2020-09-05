@@ -29,17 +29,6 @@ class Schema extends Model
     const UPDATED_AT = '_updated_at';
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        '_created_at' => 'datetime',
-        '_updated_at' => 'datetime',
-        '_deleted_at' => 'datetime',
-    ];
-
-    /**
      * The primary key for the model
      * 
      * @var string
