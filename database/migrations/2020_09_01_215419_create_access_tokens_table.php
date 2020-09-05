@@ -23,6 +23,9 @@ class CreateAccessTokensTable extends Migration
             $table->timestamp('_created_at');
             $table->timestamp('_updated_at')->nullable();
             $table->timestamp('_deleted_at')->nullable();
+
+            $table->index(['_obj', '_type']);
+            $table->index([DB::raw('expiration_date DESC')]);
         });
     }
 
