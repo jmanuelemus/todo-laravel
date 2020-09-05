@@ -11,6 +11,16 @@ use Schema;
 class AccessToken extends Schema
 {
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'code',
+        'token',
+    ];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
@@ -20,16 +30,23 @@ class AccessToken extends Schema
     ];
 
     /**
-     * 
-     * 
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        '_int',
+        '_str',
+    ];
+
+    /**
      * @return void
      */
     protected function __autogenerate()
     {
-        $this->attributes['_int'] = mt_rand(100000, 999999);
-        $this->attributes['_str'] = Str::random(64);
+        $this->setCodeAttribute(); $this->setTokenAttribute();
 
-        $this->expiration_date = Carbon::now()->add( env('APP_TOKEN_LIFETIME', 900), 'seconds');
+        $this->expiration_date = Carbon::now()->add(env('APP_TOKEN_LIFETIME', 900), 'seconds');
     }
 
     /**
@@ -66,6 +83,16 @@ class AccessToken extends Schema
     }
 
     /**
+     * Set the access token's code.
+     * 
+     * @return void 
+     */
+    protected function setCodeAttribute()
+    {
+        return $this->attributes['_int'] = mt_rand(100000, 999999);
+    }
+
+    /**
      * Get the access token's string.
      * 
      * @return string
@@ -73,5 +100,15 @@ class AccessToken extends Schema
     public function getTokenAttribute()
     {
         return $this->attributes['_str'];
+    }
+
+    /**
+     * Set the access token's string.
+     * 
+     * @return void
+     */
+    public function setTokenAttribute()
+    {
+        $this->attributes['_str'] = Str::random(64);
     }
 }
