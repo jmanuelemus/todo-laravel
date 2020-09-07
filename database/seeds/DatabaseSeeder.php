@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdministrativeDivisionSeeder::class,
             ApiKeySeeder::class,
+            EmailAddressSeeder::class,
         ]);
     }
 }

@@ -25,7 +25,7 @@ class MorphMapServiceProvider extends ServiceProvider
     public function boot()
     {
         Relation::morphMap([
-            //
+            'EmailAddress' => 'App\\EmailAddress',
         ]);
     }
 }
