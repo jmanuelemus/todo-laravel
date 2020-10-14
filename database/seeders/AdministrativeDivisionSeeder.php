@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\AdministrativeDivision;
 
 use Carbon\Carbon;
