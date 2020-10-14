@@ -1,12 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
+
+use App\Traits\BelongsToMorph;
 
 use Schema;
 
 class EmailAddress extends Schema
 {
-    use Traits\BelongsToMorph;
+    use BelongsToMorph;
 
     /**
      * The attributes that should be cast to native types.

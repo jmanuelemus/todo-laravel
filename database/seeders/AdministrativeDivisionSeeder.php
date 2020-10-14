@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\AdministrativeDivision;
+use App\Models\AdministrativeDivision;
 
 use Carbon\Carbon;
 

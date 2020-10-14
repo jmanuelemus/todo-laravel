@@ -1,12 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
+
+use App\Traits\NestedSet;
 
 use Schema;
 
 class AdministrativeDivision extends Schema
 {
-    use Traits\NestedSet;
+    use NestedSet;
 
     /**
      * The attributes that should be cast to native types.
