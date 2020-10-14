@@ -7,6 +7,7 @@ use App\AdministrativeDivision;
 use Carbon\Carbon;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdministrativeDivisionSeeder extends Seeder
 {
