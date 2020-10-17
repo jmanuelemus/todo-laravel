@@ -26,7 +26,7 @@ class CreateOrganizationsTable extends Migration
             $table->unique(['_sup', 'name']);
             $table->unique(['name', '_cctld']);
             $table->foreign('_sup')->references('_id')->on('organizations');
-            $table->foreign('_cctld')->references('identifier')->on('administrative_divisiones');
+            $table->foreign('_cctld')->references('identifier')->on('administrative_divisions');
         });
     }
 
