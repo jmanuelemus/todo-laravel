@@ -8,6 +8,8 @@ use Schema;
 
 class HoursSpecification extends Schema
 {
+    use BelongsToMorph;
+
     /**
      * The attributes that should be cast to native types.
      *
