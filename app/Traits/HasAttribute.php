@@ -11,6 +11,6 @@ trait HasAttribute
      */
     public function Attribute()
     {
-        return $this->morphMany('App\Attribute', '', '_type', '_obj');
+        return $this->morphMany('App\Models\Attribute', '', '_type', '_obj');
     }
 }
