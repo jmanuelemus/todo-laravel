@@ -17,7 +17,7 @@ class CreateEmailAddressesTable extends Migration
             $table->bigIncrements('_id');
             $table->string('_type', 32);
             $table->unsignedBigInteger('_obj');
-            $table->timestamp('verified_at');
+            $table->timestamp('verified_at')->nullable();
             $table->string('name', 64)->unique();
             $table->timestamp('_created_at');
             $table->timestamp('_updated_at')->nullable();
