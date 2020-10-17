@@ -25,6 +25,8 @@ class AdministrativeDivision extends Schema
      * @var array
      */
     protected $fillable = [
+        '_alias',
+        '_type',
         'identifier',
         'name',
         'postal_code',
@@ -55,7 +57,7 @@ class AdministrativeDivision extends Schema
      */
     public function geoContains()
     {
-        return $this->hasMany('App\AdministrativeDivision', '_sup');
+        return $this->hasMany('App\Models\AdministrativeDivision', '_sup');
     }
 
     /**
@@ -65,6 +67,6 @@ class AdministrativeDivision extends Schema
      */
     public function geoWithin()
     {
-        return $this->belongsTo('App\AdministrativeDivision', '_sup');
+        return $this->belongsTo('App\Models\AdministrativeDivision', '_sup');
     }
 }
