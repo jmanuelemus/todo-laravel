@@ -2,10 +2,20 @@
 
 namespace App\Models;
 
+use App\Traits\HasAccessToken;
+use App\Traits\HasAttribute;
+use App\Traits\HasEmailAddress;
+use App\Traits\HasHoursSpecification;
+
 use Schema;
 
 class Organization extends Schema
 {
+    use HasAccessToken, 
+        HasAttribute,
+        HasEmailAddress,
+        HasHoursSpecification;
+
     /**
      * The attributes that should be cast to native types.
      *
