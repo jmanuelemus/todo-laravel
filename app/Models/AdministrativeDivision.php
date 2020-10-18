@@ -38,7 +38,6 @@ class AdministrativeDivision extends Schema
      * @var array
      */
     protected $hidden = [
-        '_alias',
         '_lft',
         '_rgt',
     ];

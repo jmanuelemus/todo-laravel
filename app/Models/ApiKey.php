@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+
 use Illuminate\Support\Str;
 
 use Schema;
@@ -23,6 +25,7 @@ class ApiKey extends Schema
      * @var array
      */
     protected $fillable = [
+        'date_published',
         'name',
     ];
 
@@ -34,6 +37,26 @@ class ApiKey extends Schema
     protected $hidden = [
         '_str',
     ];
+
+    /**
+     * Get the API key's string.
+     * 
+     * @return int 
+     */
+    public function getKeyAttribute()
+    {
+        return $this->attributes['_str'];
+    }
+
+    /**
+     * Set the API key's string.
+     * 
+     * @return int 
+     */
+    public function setKeyAttribute()
+    {
+        $this->attributes['_str'] = Str::random(64);
+    }
 
     /**
      * @return void
@@ -67,22 +90,26 @@ class ApiKey extends Schema
     }
 
     /**
-     * Get the API key's string.
+     * Disable API key
      * 
-     * @return int 
+     * @return void
      */
-    public function getKeyAttribute()
+    public function disable()
     {
-        return $this->attributes['_str'];
+        $this->date_published = null;
+
+        return $this->save();
     }
 
     /**
-     * Set the API key's string.
+     * Publish API key
      * 
-     * @return int 
+     * @return void
      */
-    public function setKeyAttribute()
+    public function publish()
     {
-        $this->attributes['_str'] = Str::random(64);
+        $this->date_published = Carbon::now()->format('Y-m-d H:i:s');
+
+        return $this->save();
     }
 }

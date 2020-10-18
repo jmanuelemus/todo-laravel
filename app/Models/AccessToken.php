@@ -40,13 +40,64 @@ class AccessToken extends Schema
     ];
 
     /**
+     * Get the access token's code.
+     * 
+     * @return int 
+     */
+    public function getCodeAttribute()
+    {
+        return $this->attributes['_int'];
+    }
+
+    /**
+     * Set the access token's code.
+     * 
+     * @return void 
+     */
+    protected function setCodeAttribute()
+    {
+        return $this->attributes['_int'] = mt_rand(100000, 999999);
+    }
+
+    /**
+     * Set the access token's expiration date.
+     * 
+     * @return void
+     */
+    protected function setExpirationDate()
+    {
+        $this->expiration_date = Carbon::now()->add(self::lifetime(), 'seconds');
+    }
+
+    /**
+     * Get the access token's string.
+     * 
+     * @return string
+     */
+    public function getTokenAttribute()
+    {
+        return $this->attributes['_str'];
+    }
+
+    /**
+     * Set the access token's string.
+     * 
+     * @return void
+     */
+    public function setTokenAttribute()
+    {
+        $this->attributes['_str'] = Str::random(64);
+    }
+
+    /**
+     * 
      * @return void
      */
     protected function __autogenerate()
     {
-        $this->setCodeAttribute(); $this->setTokenAttribute();
-
-        $this->expiration_date = Carbon::now()->add(env('APP_TOKEN_LIFETIME', 900), 'seconds');
+        $this->setCodeAttribute(); $this->setTokenAttribute(); 
+        
+        $this->setExpirationDate();
     }
 
     /**
@@ -73,42 +124,36 @@ class AccessToken extends Schema
     }
 
     /**
-     * Get the access token's code.
-     * 
-     * @return int 
-     */
-    public function getCodeAttribute()
-    {
-        return $this->attributes['_int'];
-    }
-
-    /**
-     * Set the access token's code.
-     * 
-     * @return void 
-     */
-    protected function setCodeAttribute()
-    {
-        return $this->attributes['_int'] = mt_rand(100000, 999999);
-    }
-
-    /**
-     * Get the access token's string.
-     * 
-     * @return string
-     */
-    public function getTokenAttribute()
-    {
-        return $this->attributes['_str'];
-    }
-
-    /**
-     * Set the access token's string.
+     * Expire and delete the access token
      * 
      * @return void
      */
-    public function setTokenAttribute()
+    public function expire()
     {
-        $this->attributes['_str'] = Str::random(64);
+        $this->expiration_date = $this->deleted_at = Carbon::now();
+
+        return $this->save();
+    }
+
+    /**
+     * Extend the access token's lifetime
+     * 
+     * @see \App\Models\AccessToken::setExpirationDate()
+     */
+    public function extend()
+    {
+        $this->setExpirationDate();
+
+        return $this->save();
+    }
+
+    /**
+     * Return the access token's lifetime
+     * 
+     * @return integer
+     */
+    public static function lifetime()
+    {
+        return env('APP_TOKEN_LIFETIME', 900);
     }
 }

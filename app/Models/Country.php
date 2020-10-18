@@ -19,4 +19,12 @@ class Country extends AdministrativeDivision
             $builder->where('_type', 'Country');
         });
     }
+
+    /**
+     * @see \App\Models\AdministrativeDivision::geoContains
+     */
+    public function getAdministrativeRegionsAttribute()
+    {
+        return $this->geoContains()->get();
+    }
 }

@@ -34,4 +34,14 @@ class EmailAddress extends Schema
      * @var string
      */
     protected $table = 'emails';
+
+    /**
+     * The string representation for the model.
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
