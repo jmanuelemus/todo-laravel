@@ -26,6 +26,7 @@ class MorphMapServiceProvider extends ServiceProvider
     {
         Relation::morphMap([
             'Organization' => 'App\\Models\\Organization',
+            'Person' => 'App\\Models\\Person',
         ]);
     }
 }
