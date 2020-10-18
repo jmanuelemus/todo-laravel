@@ -13,4 +13,12 @@ trait HasEmailAddress
     {
         return $this->morphMany('App\Models\EmailAddress', '', '_type', '_obj');
     }
+
+    /**
+     * @see \App\Traits\HasEmailAddress::EmailAddress()
+     */
+    public function getEmailsAttribute()
+    {
+        return $this->EmailAddress()->get();
+    }
 }

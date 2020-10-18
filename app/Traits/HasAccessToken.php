@@ -9,8 +9,16 @@ trait HasAccessToken
      * 
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function HasAccessToken()
+    public function AccessToken()
     {
         return $this->morphMany('App\Models\AccessToken', '', '_type', '_obj');
+    }
+
+    /**
+     * @see \App\Traits\HasAccessToken::AccessToken()
+     */
+    public function getAccessTokensAttribute()
+    {
+        return $this->AccessToken()->get();
     }
 }
