@@ -18,11 +18,12 @@ class EmailAddressSeeder extends Seeder
     {
         DB::table('emails')->insert([
             [
-                '_type'       => 'Person',
-                '_obj'        => 1,
-                'verified_at' => Carbon::now()->toDateTimeString(),
-                'name'        => 'github@jmanuelemus.com',
-                '_created_at' => Carbon::now()->toDateTimeString(),
+                '_type'           => 'Person',
+                '_obj'            => 1,
+                'verified_at'     => Carbon::now()->toDateTimeString(),
+                'additional_type' => 'Work',
+                'name'            => 'github@jmanuelemus.com',
+                '_created_at'     => Carbon::now()->toDateTimeString(),
             ],
         ]);
     }

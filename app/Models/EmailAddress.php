@@ -25,6 +25,7 @@ class EmailAddress extends Schema
      * @var array
      */
     protected $fillable = [
+        'additional_type',
         'name',
     ];
 
