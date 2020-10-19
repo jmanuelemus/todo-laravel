@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasAccessToken;
 use App\Traits\HasAttribute;
 use App\Traits\HasEmailAddress;
+use App\Traits\HasPhoneNumber;
 
 use Schema;
 
@@ -12,7 +13,8 @@ class Person extends Schema
 {
     use HasAccessToken, 
         HasAttribute,
-        HasEmailAddress;
+        HasEmailAddress,
+        HasPhoneNumber;
 
     /**
      * The attributes that should be cast to native types.
