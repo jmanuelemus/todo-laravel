@@ -8,6 +8,7 @@ use App\Traits\HasEmailAddress;
 use App\Traits\HasPhoneNumber;
 use App\Traits\HasSetting;
 use App\Traits\HasUrl;
+use App\Traits\HasUser;
 
 use Schema;
 
@@ -18,7 +19,8 @@ class Person extends Schema
         HasEmailAddress,
         HasPhoneNumber,
         HasSetting,
-        HasUrl;
+        HasUrl,
+        HasUser;
 
     /**
      * The attributes that should be cast to native types.

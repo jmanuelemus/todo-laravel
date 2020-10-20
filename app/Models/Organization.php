@@ -11,6 +11,7 @@ use App\Traits\HasRole;
 use App\Traits\HasSetting;
 use App\Traits\HasTeam;
 use App\Traits\HasUrl;
+use App\Traits\HasUser;
 
 use Schema;
 
@@ -24,7 +25,8 @@ class Organization extends Schema
         HasRole,
         HasSetting,
         HasTeam,
-        HasUrl;
+        HasUrl,
+        HasUser;
 
     /**
      * The attributes that should be cast to native types.

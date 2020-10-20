@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             EmailAddressSeeder::class,
             PersonSeeder::class,
             UrlSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
