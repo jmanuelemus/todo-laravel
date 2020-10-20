@@ -8,6 +8,7 @@ use App\Traits\HasEmailAddress;
 use App\Traits\HasHoursSpecification;
 use App\Traits\HasPhoneNumber;
 use App\Traits\HasRole;
+use App\Traits\HasSetting;
 
 use Schema;
 
@@ -18,7 +19,8 @@ class Organization extends Schema
         HasEmailAddress,
         HasHoursSpecification,
         HasPhoneNumber,
-        HasRole;
+        HasRole,
+        HasSetting;
 
     /**
      * The attributes that should be cast to native types.

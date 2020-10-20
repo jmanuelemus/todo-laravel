@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Traits\BelongsToMorph;
+use App\Traits\HasSetting;
 
 use Schema;
 
 class PhoneNumber extends Schema
 {
-    use BelongsToMorph;
+    use BelongsToMorph,
+        HasSetting;
 
     /**
      * The attributes that should be cast to native types.
