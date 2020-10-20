@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToMorph;
+
 use Carbon\Carbon;
 
 use Schema;
@@ -65,6 +67,8 @@ class HoursSpecification extends Schema
     }
 
     /**
+     * Set the day of week
+     * 
      * @param  int $value
      * @return void
      */
