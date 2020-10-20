@@ -16,7 +16,7 @@ class CreateHoursSpecificationsTable extends Migration
         Schema::create('hours_specifications', function (Blueprint $table) {
             $table->bigIncrements('_id');
             $table->string('_type', 32);
-            $table->unsignedBigInteger('_obj');
+            $table->foreignId('_obj');
             $table->unsignedTinyInteger('day_of_week');
             $table->time('opens');
             $table->time('closes');

@@ -16,7 +16,7 @@ class CreateAccessTokensTable extends Migration
         Schema::create('access_tokens', function (Blueprint $table) {
             $table->bigIncrements('_id');
             $table->string('_type', 32);
-            $table->unsignedBigInteger('_obj');
+            $table->foreignId('_obj');
             $table->unsignedMediumInteger('_int');
             $table->string('_str', 128);
             $table->timestamp('expiration_date');

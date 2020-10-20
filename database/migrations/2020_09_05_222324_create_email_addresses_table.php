@@ -16,7 +16,7 @@ class CreateEmailAddressesTable extends Migration
         Schema::create('emails', function (Blueprint $table) {
             $table->bigIncrements('_id');
             $table->string('_type', 32);
-            $table->unsignedBigInteger('_obj');
+            $table->foreignId('_obj');
             $table->timestamp('verified_at')->nullable();
             $table->string('additional_type', 32)->nullable();
             $table->string('name', 64)->unique();

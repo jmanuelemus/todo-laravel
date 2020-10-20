@@ -16,7 +16,7 @@ class CreateAttributesTable extends Migration
         Schema::create('attributes', function (Blueprint $table) {
             $table->bigIncrements('_id');
             $table->string('_type', 32);
-            $table->unsignedBigInteger('_obj');
+            $table->foreignId('_obj');
             $table->string('_att', 64);
             $table->text('value');
             $table->timestamp('_created_at');
