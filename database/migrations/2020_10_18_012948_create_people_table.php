@@ -18,7 +18,7 @@ class CreatePeopleTable extends Migration
             $table->timestamp('verified_at')->nullable();
             $table->string('given_name', 128);
             $table->string('family_name', 128);
-            $table->string('alternate_name', 32);
+            $table->string('alternate_name', 64);
             $table->timestamp('_created_at');
             $table->timestamp('_updated_at')->nullable();
             $table->timestamp('_deleted_at')->nullable();

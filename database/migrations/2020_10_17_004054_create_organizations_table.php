@@ -19,6 +19,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('_cctld', 2)->index();
             $table->timestamp('verified_at')->nullable();
             $table->string('name', 255);
+            $table->string('alternate_name', 64);
             $table->timestamp('_created_at');
             $table->timestamp('_updated_at')->nullable();
             $table->timestamp('_deleted_at')->nullable();

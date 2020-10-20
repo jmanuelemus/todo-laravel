@@ -44,6 +44,7 @@ class Organization extends Schema
      */
     protected $fillable = [
         '_cctld',
+        'alternate_name',
         'name',
     ];
 
