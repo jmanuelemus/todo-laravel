@@ -10,6 +10,7 @@ use App\Traits\HasPhoneNumber;
 use App\Traits\HasRole;
 use App\Traits\HasSetting;
 use App\Traits\HasTeam;
+use App\Traits\HasUrl;
 
 use Schema;
 
@@ -22,7 +23,8 @@ class Organization extends Schema
         HasPhoneNumber,
         HasRole,
         HasSetting,
-        HasTeam;
+        HasTeam,
+        HasUrl;
 
     /**
      * The attributes that should be cast to native types.

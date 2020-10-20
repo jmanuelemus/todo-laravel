@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             ApiKeySeeder::class,
             EmailAddressSeeder::class,
             PersonSeeder::class,
+            UrlSeeder::class,
         ]);
     }
 }
