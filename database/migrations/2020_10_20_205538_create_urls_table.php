@@ -18,10 +18,12 @@ class CreateUrlsTable extends Migration
             $table->string('_type', 32);
             $table->foreignId('_obj');
             $table->string('_str', 255);
-            $table->string('additional_type', 32)->nullable();
+            $table->string('additional_type', 32)->nullable()->index();
             $table->timestamp('_created_at');
             $table->timestamp('_updated_at')->nullable();
             $table->timestamp('_deleted_at')->nullable();
+
+            $table->unique(['_obj', '_type', '_str']);
         });
     }
 
