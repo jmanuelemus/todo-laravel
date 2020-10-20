@@ -48,7 +48,7 @@ class Organization extends Schema
      */
     public function parentOrganization()
     {
-        return $this->belongsTo('App\Models\Organization', '_sup');
+        return $this->belongsTo(Organization::class, '_sup');
     }
 
     /**
@@ -58,6 +58,6 @@ class Organization extends Schema
      */
     public function subOrganization()
     {
-        return $this->hasMany('App\Models\Organization', '_sup');
+        return $this->hasMany(Organization::class, '_sup');
     }
 }

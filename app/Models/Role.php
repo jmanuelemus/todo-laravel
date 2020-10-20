@@ -26,7 +26,7 @@ class Role extends Schema
      */
     public function Permission()
     {
-        return $this->belongsToMany('App\Models\Permission', 'role_permissions', '_sub', '_sup')->withTimestamps();
+        return $this->belongsToMany(Permission::class, 'role_permissions', '_sub', '_sup')->withTimestamps();
     }
 
     /**

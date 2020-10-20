@@ -56,7 +56,7 @@ class AdministrativeDivision extends Schema
      */
     public function geoContains()
     {
-        return $this->hasMany('App\Models\AdministrativeDivision', '_sup');
+        return $this->hasMany(AdministrativeDivision::class, '_sup');
     }
 
     /**
@@ -66,6 +66,6 @@ class AdministrativeDivision extends Schema
      */
     public function geoWithin()
     {
-        return $this->belongsTo('App\Models\AdministrativeDivision', '_sup');
+        return $this->belongsTo(AdministrativeDivision::class, '_sup');
     }
 }
